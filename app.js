@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-require('dotenv/config');
-
+require("dotenv").config();
 app.use(bodyParser.json());
 const postsRoute = require('./routes/posts');
 
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 /************************CONNECT TO DB*************************** */
-mongoose.connect(process.env.DB_CONNECTION, {
+mongoose.connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
